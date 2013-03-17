@@ -1,0 +1,15 @@
+source $VIMRUNTIME/mswin.vim
+source $VIMRUNTIME/vimrc_example.vim
+behave mswin    " #支持C-a,C-x,C-c,C-v这些快捷键 "
+
+set fileformats=unix    " 这样就能看出\n和\r\n的区别了 "
+set fileformat=unix     " 设置回车为\n "
+set number autoindent tabstop=4 shiftwidth=4    " 显示行号 自动缩进 TAB宽度为4 缩进宽度为4 "
+colorscheme ron " 配色方案 "
+
+autocmd FileType c,cpp set cindent cinoptions=:0g0t0(sus        " c/c++ 智能缩进 "
+
+if has("gui_running")
+        set lines=40 columns=111
+        colo desert
+endif
