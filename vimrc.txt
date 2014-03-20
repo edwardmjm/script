@@ -1,19 +1,20 @@
-source $VIMRUNTIME/mswin.vim
 source $VIMRUNTIME/vimrc_example.vim
-behave mswin    " #???C-a,C-x,C-c,C-v??Щ????? "
- 
-set fileformats=unix    
-set fileformat=unix     
-set number autoindent tabstop=4 shiftwidth=4    " ????к? ??????? TAB?????4 ?????????4 "
-colorscheme ron " ??????? "
- 
-autocmd FileType c,cpp set cindent cinoptions=:0g0t0(sus        " c/c++ ???????? "
- 
+source $VIMRUNTIME/mswin.vim
+behave mswin
+set nobackup
+set fileformats=unix    " 这样就能看出\n和\r\n的区别了 "
+set fileformat=unix     " 设置回车为\n "
+set number autoindent tabstop=4 shiftwidth=4    " 显示行号 自动缩进 TAB宽度为4 缩进宽度为4 "
+colorscheme ron " 配色方案 "
+
+autocmd FileType c,cpp set cindent cinoptions=:0g0t0(sus        " c/c++ 智能缩进 "
+
 if has("gui_running")
         set lines=40 columns=111
         colo desert
 endif
 
-map <F9> i#include <cstdio><CR>#include <cstring><CR>#include <iostream><CR>#include <algorithm><CR>#include <vector><CR>#include <set><CR>#include <map><CR>#include <cmath><CR>#include <sstream><CR>#include <iomanip><CR>#include <queue><CR>#include <ctime><CR>using namespace std;<CR>template <class T> void checkmin(T &t,T x){if (x < t) t = x;}<CR>template <class T> void checkmax(T &t,T x){if (x > t) t = x;}<CR>template <class T> void _checkmin(T &t, T x){if (t == -1) t = x; if (x < t) t = x;}<CR>template <class T> void _checkmax(T &t, T x){if (t == -1) t = x; if (x > t) t = x;}<CR>typedef pair <int,int> PII;<CR>typedef pair <double,double> PDD;<CR>typedef long long ll;<CR>#define rep(i,n) for (int i = 0; i < (int)(n); i++)<CR>#define foreach(it,v) for (__typeof((v).begin()) it = (v).begin();it != (v).end();it++)<CR>#define DEBUG(a) cout << #a" = " << (a) << endl;<CR>#define DEBUGARR(a, n) for (int i = 0; i < (n); i++) { cout << #a"[" << i << "] = " << (a)[i] << endl; }<CR><CR>int main(){<CR>#ifdef cwj<CR>freopen("in", "r", stdin);<CR>#endif<CR>}
+imap jj <ESC>ko
 
-imap jj <ESC>O
+
+map <F9> i#include <cstdio><CR>#include <cstring><CR>#include <iostream><CR>#include <algorithm><CR>#include <vector><CR>#include <set><CR>#include <map><CR>using namespace std;<CR>#define rep(i,n) for (int i = 0; i < (int)(n); i++)<CR>#define foreach(it,v) for (__typeof((v).end()) it = (v).begin(); it != (v).end(); it++)<CR>typedef long long ll;<CR>typedef pair <int, int> PII;<CR><CR>int main() {<CR>}<ESC>ko
